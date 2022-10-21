@@ -2,18 +2,18 @@ import React, {useState} from 'react';
 import './App.css';
 import Ball from './Ball/Ball';
 
-let numbers:number[] = [];
+let numbers: number[] = [];
 
-function rightSort(a:number, b:number) {
+function rightSort(a: number, b: number) {
     return a > b ? 1 : b > a ? -1 : 0;
 }
 
-const getNumbers = () =>{
-    while (numbers.length < 5){
-        const randomNumber:number = Math.floor(Math.random() * (32) + 5);
+const getNumbers = () => {
+    while (numbers.length < 5) {
+        const randomNumber: number = Math.floor(Math.random() * (32) + 5);
         let wrong = false;
-        for( let i = 0; i < numbers.length; i++){
-            if (numbers[i] === randomNumber){
+        for (let i = 0; i < numbers.length; i++) {
+            if (numbers[i] === randomNumber) {
                 wrong = true;
                 getNumbers();
             }
@@ -26,26 +26,25 @@ const getNumbers = () =>{
 }
 
 
-
 function App() {
-    const [ballNumber , setBallNumber] = useState<number[]>([
-    ]);
+    const [ballNumber, setBallNumber] = useState<number[]>([]);
     const addNumber = () => {
         getNumbers();
         setBallNumber(numbers);
-        console.log(ballNumber)
     }
 
     return (
-    <div className="App">
-        <div><button className="btn" onClick={addNumber}>New numbers</button></div>
-      <Ball number={ballNumber[0]}/>
-      <Ball number={ballNumber[1]}/>
-      <Ball number={ballNumber[2]}/>
-      <Ball number={ballNumber[3]}/>
-      <Ball number={ballNumber[4]}/>
-    </div>
-  );
+        <div className="App">
+            <div>
+                <button className="btn" onClick={addNumber}>New numbers</button>
+            </div>
+            <Ball number={ballNumber[0]}/>
+            <Ball number={ballNumber[1]}/>
+            <Ball number={ballNumber[2]}/>
+            <Ball number={ballNumber[3]}/>
+            <Ball number={ballNumber[4]}/>
+        </div>
+    );
 }
 
 export default App;
