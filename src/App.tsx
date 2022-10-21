@@ -38,7 +38,7 @@ function App() {
 
     return (
     <div className="App">
-        <div><button onClick={addNumber}>New numbers</button></div>
+        <div><button className="btn" onClick={addNumber}>New numbers</button></div>
       <Ball number={ballNumber[0]}/>
       <Ball number={ballNumber[1]}/>
       <Ball number={ballNumber[2]}/>
