@@ -7,7 +7,7 @@ const Ball: React.FC<BallProps> = props => {
     return (
         <div className="ball">
             <p>
-                number is: {props.number}
+                {props.number}
             </p>
         </div>
     );
